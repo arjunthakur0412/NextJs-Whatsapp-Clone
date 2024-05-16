@@ -7,33 +7,27 @@ import PhotoLibrary from './PhotoLibrary';
 import CapturePhoto from './CapturePhoto';
 
 function Avatar({ type, image, setImage }) {
+	////////////////////
+	/////  States  /////
+	////////////////////
 	const [hover, setHover] = useState(false);
 	const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
 	const [contextMenuCordinates, setContextMenuCordinates] = useState({
 		x: 0,
 		y: 0
 	});
+	const [grabPhoto, setGrabPhoto] = useState(false);
+	const [showPhotoLibrary, setShowPhotoLibrary] = useState(false);
+	const [showCapturePhoto, setShowCapturePhoto] = useState(false);
 
+	////////////////////
+	///// Handlers /////
+	////////////////////
 	const showContextMenu = (e) => {
 		e.preventDefault();
 		setIsContextMenuVisible(true);
 		setContextMenuCordinates({ x: e.pageX, y: e.pageY });
 	};
-
-	const [grabPhoto, setGrabPhoto] = useState(false);
-	const [showPhotoLibrary, setShowPhotoLibrary] = useState(false);
-	const [showCapturePhoto, setShowCapturePhoto] = useState(false);
-	useEffect(() => {
-		if (grabPhoto) {
-			const data = document.getElementById('photo-picker');
-			data.click();
-			document.body.onfocus = (e) => {
-				setTimeout(() => {
-					setGrabPhoto(false);
-				}, 1000);
-			};
-		}
-	}, [grabPhoto]);
 
 	const contextMenuOptions = [
 		{
@@ -75,6 +69,21 @@ function Avatar({ type, image, setImage }) {
 			setImage(data.src);
 		}, 100);
 	};
+
+	/////////////////////
+	///// useEffect /////
+	/////////////////////
+	useEffect(() => {
+		if (grabPhoto) {
+			const data = document.getElementById('photo-picker');
+			data.click();
+			document.body.onfocus = (e) => {
+				setTimeout(() => {
+					setGrabPhoto(false);
+				}, 1000);
+			};
+		}
+	}, [grabPhoto]);
 
 	return (
 		<>

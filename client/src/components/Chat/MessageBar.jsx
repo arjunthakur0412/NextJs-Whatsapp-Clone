@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 function MessageBar() {
-  return <div>MessageBar</div>;
+	return <div>MessageBar</div>;
 }
 
 export default MessageBar;
