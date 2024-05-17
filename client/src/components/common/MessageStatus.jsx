@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 function MessageStatus() {
-  return <div>MessageStatus</div>;
+	return <div>MessageStatus</div>;
 }
 
 export default MessageStatus;

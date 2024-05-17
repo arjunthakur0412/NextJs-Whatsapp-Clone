@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 function IncomingVideoCall() {
-  return <div>IncomingVideoCall</div>;
+	return <div>IncomingVideoCall</div>;
 }
 
 export default IncomingVideoCall;
