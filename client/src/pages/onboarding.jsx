@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-function onboarding() {
+function Onboarding() {
 	////////////////////
 	//////  Hooks  /////
 	////////////////////
@@ -70,12 +70,7 @@ function onboarding() {
 		}
 	};
 
-	const validateDetails = () => {
-		if (name.length < 3) {
-			return false;
-		}
-		return true;
-	};
+	const validateDetails = () => name.length >= 3;
 
 	////////////////////
 	/////    JSX   /////
@@ -123,4 +118,4 @@ function onboarding() {
 	);
 }
 
-export default onboarding;
+export default Onboarding;
